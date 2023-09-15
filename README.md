@@ -37,16 +37,41 @@ While Food 101 Dataset had balanced 1000 images per class, the rest of the class
 
 ## Model Training
 
-### NLP
+### NLP(Restrcitive-Ingredient)
 
-For model selection, a `distilrobera-base` model from HuggingFace Transformers was finetuned that uses Fastai and Blurr. The model training notebook can be viewed at `Notebooks\Food-Restriction\Food_Restriction.ipynb`
+For model selection of Restrictive food Ingredient detection Model, a `distilrobera-base` model from HuggingFace Transformers was finetuned that uses Fastai and Blurr. The model training notebook can be viewed at `Notebooks\Food-Restriction\Food_Restriction.ipynb`
 
-## Benchnarking
+#### Benchnarking
 | Model             | train_loss    | valid_loss        | accuracy_multi   | Model Size    |
 | -------------     | ------------- | -------------     | -------------    | ------------- |
 | roberta-base      | 0.050930      | 0.042578          |  98.19%          | 480 MB        |
-| distilrobera-base | 0.057865      | 0.045424	         |  98.28%          | 322 MB        |
+| distilrobera-base | 0.057865      | 0.045424	        |  98.28%          | 322 MB        |
 
+Since, they had nearly similar results, while model size was more compact for `distilrobera-base` this was selected
+
+### NLP(Food-Origin)
+
+For model selection of Food Origin detection Model, a `distilrobera-base` model from HuggingFace Transformers was finetuned that uses Fastai and Blurr. The model training notebook can be viewed at `Notebooks\Food-Origin\Food_origin.ipynb`
+
+#### Benchnarking
+| Model             | train_loss    | valid_loss        | accuracy_multi   | Model Size    |
+| -------------     | ------------- | -------------     | -------------    | ------------- |
+| roberta-base      | 0.365650      | 0.342742          |  88.59%          | 480 MB        |
+| distilrobera-base | 0.193177      | 0.251501          |  91.22%          | 322 MB        |
+
+Since, distilrobera-base demonstrated 3% better result while also being more compact size wise. `distilrobera-base` was selected
+
+### Image(Food-Detection)
+
+For model selection of Image classification Model, `Resnet-50` model from HuggingFace Transformers was finetuned that uses Fastai and Blurr. The model training notebook can be viewed at `Notebooks\Food-Detection(Image)\Image.ipynb`
+
+#### Benchnarking
+| Model             | train_loss    | valid_loss        | error_rate	   | accuracy      |
+| -------------     | ------------- | -------------     | -------------    | ------------- |
+| Resnet-34         | 0.416365      | 0.388924          |  0.100993        | 89.90%        |
+| Resnet-50         | 0.337102      | 0.318108          |  0.083765        | 91.62%        |
+
+Since, Resnet-50 demonstrated 2% better result Despite being a more complex model. `Resnet-50` was selected
 
 ## Model Compression and ONNX Inference
 
@@ -54,7 +79,7 @@ The trained NLP model has a memory of 322+MB. For better usage, the model was co
 
 ## Model Deployment
 
-The compressed model is deployed to HuggingFace Spaces Gradio App. The implementation can be found in `deployment` folder or [here](https://huggingface.co/spaces/sanjid/News_Classifier)
+All three of the model is deployed to HuggingFace Spaces Gradio App. The implementation can be found in `deployment` folder or [here](https://huggingface.co/spaces/sanjid/News_Classifier)
 
 <img src = "https://github.com/SanjidHossain/Multilabel-News-Classifier/blob/main/Data/Image%20sources/app_gradio.png" width="800" height="400">
 
@@ -62,6 +87,6 @@ The compressed model is deployed to HuggingFace Spaces Gradio App. The implement
 A Flask App has been built and published on `render`. The web app can take any form of News or article and show the Category or type of the article as output. Check `flask ` branch.
 **Please visit the [Website](https://multilab-news-classifier.onrender.com)**
 
-<img src = "Data/Image sources/Web_app.png" width="800" height="400">
+
 
 
