@@ -84,6 +84,7 @@ All three of the model is deployed to HuggingFace Spaces Gradio App. The impleme
 
 <img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/app.png" width="800" height="400">
 <br/>
+
 [Visit here](https://huggingface.co/spaces/sanjid/Food-classifier-Resnet50) to checkout the image model
 <img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food-classifier-Resnet50/app.png" width="800" height="400">
 <br/>
