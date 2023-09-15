@@ -79,10 +79,14 @@ The trained NLP model has a memory of 322+MB. For better usage, the model was co
 
 ## Model Deployment
 
-All three of the model is deployed to HuggingFace Spaces Gradio App. The implementation can be found in `deployment` folder or [here](https://huggingface.co/spaces/sanjid/News_Classifier)
+All three of the model is deployed to HuggingFace Spaces Gradio App. The implementation can be found in `deployment` folder
+[Visit here](https://huggingface.co/spaces/sanjid/Food-ingredient-Classifier) to checkout the NLP Model for Origin classfier
+<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/app.png" width="400" height="400">
 
-<img src = "https://github.com/SanjidHossain/Multilabel-News-Classifier/blob/main/Data/Image%20sources/app_gradio.png" width="800" height="400">
+[Visit here](https://huggingface.co/spaces/sanjid/Food-classifier-Resnet50) to checkout the image model
+<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food-classifier-Resnet50/app.png" width="400" height="400">
 
+[Visit here](https://huggingface.co/spaces/sanjid/Food-Origin-classifier-distiltrobertabase) to checkout the NLP Model for Origin classfier
 ## Web Deployment
 A Flask App has been built and published on `render`. The web app can take any form of News or article and show the Category or type of the article as output. Check `flask ` branch.
 **Please visit the [Website](https://multilab-news-classifier.onrender.com)**
