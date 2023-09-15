@@ -81,9 +81,9 @@ The trained NLP model has a memory of 322+MB. For better usage, the model was co
 
 All three of the model is deployed to HuggingFace Spaces Gradio App. The implementation can be found in `deployment` folder
 [Visit here](https://huggingface.co/spaces/sanjid/Food-ingredient-Classifier) to checkout the NLP Model for Origin classfier
+[Visit here](https://huggingface.co/spaces/sanjid/Food-classifier-Resnet50) to checkout the image model
 <img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/app.png" width="400" height="400">
 
-[Visit here](https://huggingface.co/spaces/sanjid/Food-classifier-Resnet50) to checkout the image model
 <img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food-classifier-Resnet50/app.png" width="400" height="400">
 
 [Visit here](https://huggingface.co/spaces/sanjid/Food-Origin-classifier-distiltrobertabase) to checkout the NLP Model for Origin classfier
