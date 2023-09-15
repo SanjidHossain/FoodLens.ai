@@ -22,7 +22,7 @@ Data was collected from Website of [AllRecipes](https://www.allrecipes.com/) and
 
  Two popular Image Datasets were taken From Kaggle:
   - [FOOD 101:](https://www.kaggle.com/datasets/dansbecker/food-101) that consisted Images of 101 popular foods(1000 images per foods) around the world.
-  - [Indian Food Images Dataset:](https://www.kaggle.com/datasets/iamsouravbanerjee/indian-food-images-dataset) that consisted 80 popular food of India(50 Images per food). <\br>
+  - [Indian Food Images Dataset:](https://www.kaggle.com/datasets/iamsouravbanerjee/indian-food-images-dataset) that consisted 80 popular food of India(50 Images per food). <br/>
 
  Secondly, 58 popular food dishes(170 images per food) from Some of the popular traveling destinations of European and Asian countries were also scraped with DuckDuckGo search using their term name.
 
@@ -81,12 +81,16 @@ The trained NLP model has a memory of 322+MB. For better usage, the model was co
 
 All three of the model is deployed to HuggingFace Spaces Gradio App. The implementation can be found in `deployment` folder
 [Visit here](https://huggingface.co/spaces/sanjid/Food-ingredient-Classifier) to checkout the NLP Model for Origin classfier
-[Visit here](https://huggingface.co/spaces/sanjid/Food-classifier-Resnet50) to checkout the image model
-<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/app.png" width="400" height="400">
 
-<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food-classifier-Resnet50/app.png" width="400" height="400">
+<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/app.png" width="800" height="400">
+<br/>
+[Visit here](https://huggingface.co/spaces/sanjid/Food-classifier-Resnet50) to checkout the image model
+<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food-classifier-Resnet50/app.png" width="800" height="400">
+<br/>
 
 [Visit here](https://huggingface.co/spaces/sanjid/Food-Origin-classifier-distiltrobertabase) to checkout the NLP Model for Origin classfier
+
+<br/>
 ## Web Deployment
 A Flask App has been built and published on `render`. The web app can take any form of News or article and show the Category or type of the article as output. Check `flask ` branch.
 **Please visit the [Website](https://multilab-news-classifier.onrender.com)**
