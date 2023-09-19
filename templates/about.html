@@ -1,0 +1,100 @@
+<html>
+<head>
+    <title>About FoodLens</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <style>
+        body, html {
+            height: 100%;
+            font-family: "Inconsolata", sans-serif;
+        }
+
+        .bgimg {
+            background-position: center;
+            background-size: cover;
+            min-height: 100vh;
+            background-image: url('static/builtin/image.jpg');
+        }
+
+        .menu {
+            display: none;
+        }
+
+        /* Style for the message or note */
+        .message-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .message {
+            font-size: 24px;
+            font-weight: bold;
+            color: #050505;
+            max-width: 800px;
+            padding: 20px;
+            background-color: rgba(255, 253, 253, 0.493);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgb(0, 0, 0);
+        }
+        /* Style for left-aligned paragraphs */
+        .left-aligned p {
+            text-align: left;
+        }
+        .right-aligned p {
+            text-align: right;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+    <div class="w3-row w3-padding w3-black" style="display: flex; justify-content: space-between;">
+      <div class="w3-col s2">
+        <!-- Logo Section -->
+        <a href="#" class="w3-button w3-block w3-black" style="pointer-events: none;">
+          <img src="static\builtin\ideogram.jpeg" alt="Logo" style="max-height: 30px; max-width: 100%;">
+        </a>
+      </div>
+      <div class="w3-col s2">
+        <a href="/" class="w3-button w3-block w3-black">HOME</a>
+      </div>
+      <div class="w3-col s2">
+        <a href="/app"  class="w3-button w3-block w3-black">Culinary Insights</a> <!-- Link to app.html -->
+    </div>
+      <div class="w3-col s2">
+        <a href="/app2" class="w3-button w3-block w3-black">SnapPlate: Food Detective</a>
+      </div>
+      <div class="w3-col s2">
+        <a href="/about" class="w3-button w3-block w3-black">About</a>
+      </div>
+    </div>
+</div>
+
+<!-- Message or Note -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+    <div class="message-container">
+        <div class="message">
+            <div class="left-aligned">
+                <p>Dear Users</p>
+            </div>
+            <p>At FoodLens, we do our best to classify restrictive ingredients accurately based on generic recipes. However, it's important to keep in mind that chefs often have their own unique variations and may adjust recipes to suit their specialty.</p>
+            <p>Because of this, we recommend that our valued customers always ask the restaurant or chef for specific details regarding any dietary restrictions. This will ensure you have the most up-to-date and accurate information about the ingredients used in your meal.</p>
+            <p>Your health and satisfaction are our top priorities, and by asking questions, you can make more informed choices that align with your dietary preferences and requirements.</p>
+            <p>Enjoy your dining experience, and feel free to reach out to us if you have any questions or concerns.</p>
+            <p>Bon Appétit!</p>
+            <div class="right-aligned">
+                <p>--From the Developer of FoodLens</p>
+            </div>
+    </div>
+</header>
+</body>
+</html>
+
+

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FoodLens</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body,
+        html {
+            height: 100%;
+            font-family: "Inconsolata", sans-serif;
+        }
+
+        .bgimg {
+            background-position: center;
+            background-size: cover;
+            min-height: 100vh;
+            background-image: url('static/builtin/image.jpg');
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Links (sit on top) -->
+    <div class="w3-top">
+        <div class="w3-row w3-padding w3-black" style="display: flex; justify-content: space-between;">
+            <div class="w3-col s2">
+                <!-- Logo Section -->
+                <a href="#" class="w3-button w3-block w3-black" style="pointer-events: none;">
+                    <img src="static\builtin\ideogram.jpeg" alt="Logo" style="max-height: 30px; max-width: 100%;">
+                </a>
+            </div>
+            <div class="w3-col s2">
+                <a href="/" class="w3-button w3-block w3-black">HOME</a>
+            </div>
+            <div class="w3-col s2">
+                <a href="/app" class="w3-button w3-block w3-black">Culinary Insights</a>
+                <!-- Link to app.html -->
+            </div>
+            <div class="w3-col s2">
+                <a href="/app2" class="w3-button w3-block w3-black">SnapPlate: Food Detective</a>
+            </div>
+            <div class="w3-col s2">
+              <a href="/about" class="w3-button w3-block w3-black">About</a>
+          </div>
+        </div>
+    </div>
+    <!-- Header with image -->
+    <header class="bgimg w3-display-container w3-grayscale-min" id="app"
+        style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <div class="container-box">
+            <!-- Add Text Button and Image Button with class names at the top -->
+
+            <!-- Rest of the content -->
+            <div class="container">
+                <div class="input-box">
+                    <h1>Enter Food Recipe or description</h1>
+                    <form action="/app" method="POST">
+                      <textarea name="text" id="article-input" placeholder="Enter Food Description here" required></textarea>
+                        <div class="button-group">
+                            <button type="submit" name="submit">Submit</button>
+                            <!-- New "Speech" and "Scan" buttons -->
+                            <button class="transparent-button" id="speech-button">Speech</button>
+                            <button class="transparent-button" id="scan-button">Scan</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Container box for Classification Result - Origin and Restrictive Ingredients -->
+                <div class="combined-box">
+                    <!-- Container box for Classification Result - Origin -->
+                    <div class="origin-box">
+                        <h1>Origin</h1>
+                        {% if is_empty_result %}
+                            <p>Sorry the data was not sufficient enough to Detect Origin of the food</p>
+                        {% else %}
+                            <tbody id="result">
+                                {% for item in label_list %}
+                                    <tr>
+                                        <td>{{ item.label }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+
+                        {% endif %}
+                        <!-- Add your Origin content here -->
+                    </div>
+                    <!-- Container box for Classification Result - Restrictive Ingredients -->
+                    <div class="restrictive-box">
+                        <h1>Restrictive Ingredients</h1>
+                        <!-- Add your Restrictive Ingredients content here -->
+                    </div>
+                    <!-- New "Note" box -->
+                    <div class="note-box">
+                        <h1>Note</h1>
+                        <p>it's important to keep in mind that chefs often have their </p>
+                        <p>own unique variations and may adjust recipes to suit their specialty.</p>
+                    </div>
+                </div>
+                <!-- Clear button -->
+                <button onclick="clearResults()">Clear</button>
+            </div>
+        </div>
+    </header>
+</body>
+
+</html>

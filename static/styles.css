@@ -1,0 +1,298 @@
+/* Reset and general styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Add your general CSS styles here */
+
+/* Container styles */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.container-box {
+    background-color: rgba(255, 255, 255, 0.226);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.input-box, .output-box {
+    flex: 1;
+    padding: 20px;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.295);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-height: 400px; /* Equal height */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+}
+
+/* Headings and text styles */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Textarea styles */
+textarea {
+    width: 100%;
+    height: 300px;
+    padding: 10px;
+    margin: 0;
+    border: 1px solid #dddddd69;
+    resize: none;
+    box-sizing: border-box;
+}
+
+/* Button styles */
+button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #2881e0;
+    color: #000000;
+    border: 2px solid #ffffff;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s;
+    font-display: bold;
+    margin-top: auto; /* Push button to the bottom */
+}
+
+button:hover {
+    background-color: #ffffff00;
+    border-color: #000000;
+    transform: scale(1.05);
+}
+
+/* Result box styles */
+.label-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 10px;
+    background-color: #f9f9f9;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    flex-grow: 1; /* Allow table to grow */
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Button container styles */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.397);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-height: 50px;
+}
+
+/* Interactive button styles */
+.interactive-button {
+    flex: 1;
+    padding: 15px;
+    background-color: #2771c0;
+    color: #ffffff63;
+    border: 2px solid #ffffff;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s;
+}
+.text-button {
+    /* Your existing styles */
+    background-image: url('path/to/microphone-transparent-2018-45.png'); /* Replace 'path/to/image.png' with the actual path to your image */
+    background-size: contain; /* Adjust as needed to fit the image within the button */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+    background-position: center center; /* Center the image within the button */
+}
+.text-button:hover {
+    background-color: #ffffff00;
+    border-color: #000000;
+    transform: scale(1.05);
+}
+.image-button {
+    /* Your existing styles */
+    background-image: url('path/to/R.png'); /* Replace 'path/to/image.png' with the actual path to your image */
+    background-size: contain; /* Adjust as needed to fit the image within the button */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+    background-position: center center; /* Center the image within the button */
+}
+.image-button:hover {
+    background-color: #086bc7;
+    border-color: #000000;
+    transform: scale(1.05);
+}
+
+/* Classification result box styles */
+.result-box {
+    flex: 1;
+    padding: 20px;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.result-box h1 {
+    text-align: center;
+    color: #333;
+}
+
+.tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.tag {
+    background-color: #0078d4;
+    color: white;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.result-box button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #6ba5e4;
+    color: #fff;
+    border: 2px solid #ffffff;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s;
+    margin-top: auto;
+}
+
+.result-box button:hover {
+    background-color: #086bc7;
+    border-color: #000000;
+    transform: scale(1.05);
+}
+
+/* Combined box for Origin and Restrictive Ingredients */
+.combined-box {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Style for the "Origin" and "Restrictive Ingredients" boxes */
+.result-box {
+    flex: 1;
+    padding: 10px;
+    margin: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style for the "Origin" and "Restrictive Ingredients" box headings */
+.result-box h1 {
+    text-align: center;
+    color: #333;
+}
+/* Style for the "Speech" and "Scan" buttons */
+/* Style for the transparent buttons */
+.transparent-button {
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    padding: 15px 20px; /* Adjust the padding to match the Submit button */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 20px; /* Adjust font size to match the Submit button */
+}
+
+.transparent-button:hover {
+    background-color: black;
+    color: rgba(255, 255, 255, 0.527);
+}
+
+/* Style for the button group */
+.button-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align buttons next to each other */
+    margin-top: 10px; /* Add margin to separate buttons from the textarea */
+}
+
+/* Adjust spacing between buttons as needed */
+.button-group button {
+    margin-right: 10px;
+}
+/* Style for the "Origin" box */
+/* Style for the "Restrictive Ingredients" box */
+.origin-box {
+    flex: 30;
+    padding: 10px;
+    margin: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-height: 150px; /* Adjust the min-height as needed */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style for the "Restrictive Ingredients" box */
+.restrictive-box {
+    flex: 30; /* Increase the flex value to make it bigger */
+    padding: 10px;
+    margin: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-height: 200px; /* Adjust the min-height as needed */
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Style for the "Note" box */
+.note-box {
+    flex: 10;
+    padding: 5px;
+    margin: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-height: 120px; /* Adjust the min-height as needed */
+    display: flex;
+    flex-direction: column;
+}

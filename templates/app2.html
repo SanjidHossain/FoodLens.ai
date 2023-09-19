@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FoodLens Image App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+
+    <style>
+        body,
+        html {
+            height: 100%;
+            font-family: "Inconsolata", sans-serif;
+        }
+
+        .bgimg {
+            background-position: center;
+            background-size: cover;
+            min-height: 100vh;
+            background-image: url('static/builtin/image.jpg');
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .input-box {
+            margin-bottom: 20px;
+        }
+
+        .input-box h1 {
+            font-size: 24px;
+        }
+
+        .input-box input[type="file"],
+        .input-box button {
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #0c7febe0;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* CSS for aligning the result boxes to the right */
+        .result-box {
+            display: flex;
+            justify-content: flex-end; /* Align to the right */
+            margin-top: 20px; /* Add some top margin for separation */
+        }
+
+        .food-name-box,
+        .food-origin-box,
+        .restrictive-ingredients-box {
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-left: 10px; /* Add some left margin for separation */
+        }
+
+
+        .food-name-box h2,
+        .food-origin-box h2,
+        .restrictive-ingredients-box h2 {
+            font-size: 24px;
+        }
+
+        .food-name-box p,
+        .food-origin-box p,
+        .restrictive-ingredients-box p {
+            font-size: 16px;
+            color: #333;
+        }
+        .image-upload-container {
+          background-color: rgba(255, 255, 255, 0.144);
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          margin-bottom: 20px;
+          text-align: center;
+      }
+      button {
+        background-color: #2881e0;
+        color: #000000;
+        border: 2px solid #000000;
+      }
+
+      button:hover {
+        background-color: #0700008a;
+        border-color: #000000;
+        transform: scale(1.05);
+        font-display: bold;
+    }
+
+
+    </style>
+</head>
+
+<body>
+    <!-- Links (sit on top) -->
+    <div class="w3-top">
+        <div class="w3-row w3-padding w3-black" style="display: flex; justify-content: space-between;">
+            <div class="w3-col s2">
+                <!-- Logo Section -->
+                <a href="#" class="w3-button w3-block w3-black" style="pointer-events: none;">
+                    <img src="static\builtin\ideogram.jpeg" alt="Logo" style="max-height: 30px; max-width: 100%;">
+                </a>
+            </div>
+            <div class="w3-col s2">
+                <a href="/" class="w3-button w3-block w3-black">HOME</a>
+            </div>
+            <div class="w3-col s2">
+                <a href="/app" class="w3-button w3-block w3-black">Culinary Insights</a>
+                <!-- Link to app.html -->
+            </div>
+            <div class="w3-col s2">
+                <a href="/app2" class="w3-button w3-block w3-black">SnapPlate: Food Detective</a>
+            </div>
+            <div class="w3-col s2">
+                <a href="/about" class="w3-button w3-block w3-black">About</a>
+            </div>
+        </div>
+    </div>
+    <!-- Header with image -->
+    <header class="bgimg w3-display-container w3-grayscale-min" id="app"
+        style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <div class="container-box">
+            <!-- Add Image Upload Buttons and Four Boxes for Results -->
+            <div class="image-upload-container">
+                <div class="input-box">
+                    <h1>Upload Food Image</h1>
+                    <!-- Option to upload image from drive -->
+                    <input type="file" id="image-upload" accept="image/*">
+                    <!-- Option to capture image from camera -->
+                    <button id="camera-button">capture</button>
+                    <button id="camera-button">Clear</button>
+                </div>
+                <!-- Four Boxes for Classification Results -->
+                <div class="result-box">
+                    <div class="food-name-box">
+                        <h2>Food Name</h2>
+                        <p>Food name will appear here</p>
+                    </div>
+                    <div class="food-origin-box">
+                        <h2>Food Origin</h2>
+                        <p>Food origin will appear here</p>
+                    </div>
+                    <div class="restrictive-ingredients-box">
+                        <h2>Restrictive Ingredients</h2>
+                        <p>Restrictive ingredients will appear here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+
+</html>
