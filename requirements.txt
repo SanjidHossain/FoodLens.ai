@@ -1,5 +1,5 @@
 Flask==2.2.2
-gradio_client==0.5.1
+gradio_client==0.2.6
 gunicorn==21.2.0
 pandas==2.1.0
 requests==2.31.0
