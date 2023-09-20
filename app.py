@@ -71,10 +71,11 @@ def predict_label_ingredient(input_text):
     data = response["data"]
     return data
 
-# Initialize the Gradio Client with the API endpoint
-gradio_client = Client("https://sanjid-food-classifier-resnet50.hf.space/")
-csv_file_path = 'Data_for_image.csv'  # Replace with the actual path to your CSV file
+
+csv_file_path = 'Data_for_image.csv'
 df = pd.read_csv(csv_file_path)
+
+gradio_client = Client("https://sanjid-food-classifier-resnet50.hf.space/")
 
 @app.route('/app2', methods=['GET', 'POST'])
 def app2():
@@ -89,7 +90,7 @@ def app2():
                 image_file.save(temp_image_path)
 
                 # Provide the file path to the Gradio API
-                result = gradio_client.predict(temp_image_path, api_name="/predict")
+                result = gradio_client.predict(temp_image_path, api_name=False)
                 print("Prediction Result File:", result)
 
                 # Read the content of the JSON file
