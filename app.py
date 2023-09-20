@@ -77,8 +77,27 @@ df = pd.read_csv(csv_file_path)
 
 gradio_client = Client("https://sanjid-food-classifier-resnet50.hf.space/")
 
+def predict_label_image(image_path):
+    # Provide the file path to the Gradio API
+    result = gradio_client.predict(image_path, api_name="/predict")
+    print("Prediction Result File:", result)
+
+    # Read the content of the JSON file
+    with open(result, 'r') as json_file:
+        json_data = json.load(json_file)
+        top_label = json_data.get('label', 'Could not detect')
+        top_confidence = json_data.get('confidences', [])[0].get('confidence', 0)
+
+    return {'label': top_label, 'confidence': top_confidence}
+
 @app.route('/app2', methods=['GET', 'POST'])
 def app2():
+    # label_list_origin = []
+    # is_empty_result_origin = True  # Flag to indicate if the origin result is empty
+
+    label_list_ingredient = []
+    is_empty_result_ingredient = True  # Flag to indicate if the ingredient result is empty
+
     if request.method == 'POST':
         # Get the uploaded image file
         image_file = request.files['image']
@@ -89,48 +108,41 @@ def app2():
                 temp_image_path = "temp_image.jpg"
                 image_file.save(temp_image_path)
 
-                # Provide the file path to the Gradio API
-                result = gradio_client.predict(temp_image_path, api_name=False)
-                print("Prediction Result File:", result)
-
-                # Read the content of the JSON file
-                with open(result, 'r') as json_file:
-                    json_data = json.load(json_file)
-                    top_label = json_data.get('label', 'Could not detect')
-                    top_confidence = json_data.get('confidences', [])[0].get('confidence', 0)
+                # Predict image
+                output_image = predict_label_image(temp_image_path)
+                top_label = output_image['label']
+                top_confidence = output_image['confidence']
 
                 # Check if the top confidence is above 0.5
                 if top_confidence > 0.5:
                     # Match the predicted food name with the CSV data
                     predicted_food_name = top_label
-                    food_origin = get_food_origin_from_csv(predicted_food_name)
                     food_body = get_food_body_from_csv(predicted_food_name)
+                    food_origin = get_food_origin_from_csv(predicted_food_name)
 
                     # Predict restrictive ingredient
                     output_ingredient = predict_label_ingredient(food_body)[0]
                     confident_list_ingredient = output_ingredient['confidences']
-                    label_list_ingredient = []
                     for elem in confident_list_ingredient:
                         if elem['confidence'] >= 0.5:
+                            is_empty_result_ingredient = False
                             label_list_ingredient.append({
                                 'label': elem['label'],
                                 'confidence': int(elem['confidence'] * 100)
                             })
                 else:
-                    food_origin = 'Could not detect'
-                    label_list_ingredient = []
+                    predicted_food_name = 'Could not detect'
 
-                print("Food Origin:", food_origin)
+                print("Predicted Food Name:", predicted_food_name)
 
-                # Add the 'predicted_food_name', 'food_origin', and 'label_list_ingredient' variables to the render_template call
-                return render_template('app2.html', predicted_food_name=predicted_food_name, food_origin=food_origin, label_list_ingredient=label_list_ingredient)
+                # Add the 'predicted_food_name', 'label_list_origin', 'label_list_ingredient' variables to the render_template call
+                return render_template('app2.html', predicted_food_name=predicted_food_name, food_origin=food_origin, label_list_ingredient=label_list_ingredient, is_empty_result_ingredient=is_empty_result_ingredient)
 
             except Exception as e:
                 print("Error:", str(e))
 
     # If the request method is not POST or there is no image, render the upload form
     return render_template('app2.html')
-
 
 def get_food_body_from_csv(predicted_food_name):
     # Filter the DataFrame to find the row with matching food name
