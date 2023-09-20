@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>FoodLens</title>
     <meta charset="UTF-8">
@@ -14,16 +13,15 @@
             height: 100%;
             font-family: "Inconsolata", sans-serif;
         }
+    .bgimg {
+        background-position: center;
+        background-size: cover;
+        min-height: 100vh;
+        background-image: url('static/builtin/image.jpg');
+    }
+</style>
 
-        .bgimg {
-            background-position: center;
-            background-size: cover;
-            min-height: 100vh;
-            background-image: url('static/builtin/image.jpg');
-        }
-    </style>
 </head>
-
 <body>
     <!-- Links (sit on top) -->
     <div class="w3-top">
@@ -54,57 +52,105 @@
         style="display: flex; justify-content: center; align-items: center; height: 100vh;">
         <div class="container-box">
             <!-- Add Text Button and Image Button with class names at the top -->
-
-            <!-- Rest of the content -->
-            <div class="container">
-                <div class="input-box">
-                    <h1>Enter Food Recipe or description</h1>
-                    <form action="/app" method="POST">
-                      <textarea name="text" id="article-input" placeholder="Enter Food Description here" required></textarea>
-                        <div class="button-group">
-                            <button type="submit" name="submit">Submit</button>
-                            <!-- New "Speech" and "Scan" buttons -->
-                            <button class="transparent-button" id="speech-button">Speech</button>
-                            <button class="transparent-button" id="scan-button">Scan</button>
-                        </div>
-                    </form>
-                </div>
-                <!-- Container box for Classification Result - Origin and Restrictive Ingredients -->
-                <div class="combined-box">
-                    <!-- Container box for Classification Result - Origin -->
-                    <div class="origin-box">
-                        <h1>Origin</h1>
-                        {% if is_empty_result %}
-                            <p>Sorry the data was not sufficient enough to Detect Origin of the food</p>
-                        {% else %}
-                            <tbody id="result">
-                                {% for item in label_list %}
-                                    <tr>
-                                        <td>{{ item.label }}</td>
-                                    </tr>
-                                {% endfor %}
-                            </tbody>
-
-                        {% endif %}
-                        <!-- Add your Origin content here -->
+        <!-- Rest of the content -->
+        <div class="container">
+            <div class="input-box">
+                <h1>Enter Food Recipe or description</h1>
+                <form action="/app" method="POST">
+                    <textarea name="text" id="article-input" placeholder="Enter Food Description here" required>{{ request.form['text'] }}</textarea>
+                    <div class="button-group">
+                        <button type="submit" name="submit">Submit</button>
+                        <!-- New "Speech" and "Scan" buttons -->
+                        <button class="transparent-button" id="speech-button" onclick="startDictation(event)">Speech</button>
                     </div>
-                    <!-- Container box for Classification Result - Restrictive Ingredients -->
-                    <div class="restrictive-box">
-                        <h1>Restrictive Ingredients</h1>
-                        <!-- Add your Restrictive Ingredients content here -->
-                    </div>
-                    <!-- New "Note" box -->
-                    <div class="note-box">
-                        <h1>Note</h1>
-                        <p>it's important to keep in mind that chefs often have their </p>
-                        <p>own unique variations and may adjust recipes to suit their specialty.</p>
-                    </div>
-                </div>
-                <!-- Clear button -->
-                <button onclick="clearResults()">Clear</button>
+                </form>
             </div>
+            <!-- Container box for Classification Result - Origin and Restrictive Ingredients -->
+            <div class="combined-box">
+                <!-- Container box for Classification Result - Origin -->
+                <div class="origin-box">
+                    <h1>Origin</h1>
+                    {% if is_empty_result_origin %}
+                        <p>Sorry, the data was not sufficient enough to Detect Origin of the food</p>
+                    {% else %}
+                        <ul class="origin-list">
+                            {% for item in label_list_origin %}
+                                <li class="result-text">{{ item.label }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <!-- Add your Origin content here -->
+                </div>
+                <!-- Container box for Classification Result - Restrictive Ingredients -->
+                <div class="restrictive-box">
+                    <h1>Restrictive Ingredients</h1>
+                    {% if is_empty_result_ingredient %}
+                        <p>No restrictive ingredients detected.</p>
+                    {% else %}
+                        <ul class="ingredient-list">
+                            {% for item in label_list_ingredient %}
+                                <li>{{ item.label }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <!-- Add your Restrictive Ingredients content here -->
+                </div>
+                <!-- New "Note" box -->
+                <div class="note-box">
+                    <h1>Note</h1>
+                    <p>it's important to keep in mind that chefs often have their </p>
+                    <p>own unique variations and may adjust recipes to suit their specialty.</p>
+                </div>
+            </div>
+            <!-- Clear button -->
+            <button onclick="clearResults()" type="button">Clear</button>
         </div>
-    </header>
-</body>
+    </div>
+    <!-- Rest of your HTML code -->
 
+    <!-- JavaScript for the clearResults() function -->
+    <!-- JavaScript for the clearResults() function -->
+    <script>
+        // Function to clear results
+        function clearResults() {
+            // Clear the text in the textarea (input box)
+            document.getElementById("article-input").value = "";
+
+            // Replace the Origin result list with a message
+            var originList = document.querySelector(".origin-list");
+            if (originList) {
+                originList.innerHTML = '<p>Enter new food description for results</p>';
+            }
+
+            // Replace the Restrictive Ingredients result list with a message
+            var ingredientList = document.querySelector(".ingredient-list");
+            if (ingredientList) {
+                ingredientList.innerHTML = '<p>Enter new food description for results</p>';
+            }
+        }
+        function startDictation(event) {
+            if (window.hasOwnProperty('webkitSpeechRecognition')) {
+                var recognition = new webkitSpeechRecognition();
+
+                recognition.continuous = false;
+                recognition.interimResults = false;
+
+                recognition.lang = "en-US";
+                recognition.start();
+
+                recognition.onresult = function(e) {
+                    document.getElementById('article-input').value = e.results[0][0].transcript;
+                    recognition.stop();
+                };
+
+                recognition.onerror = function(e) {
+                    recognition.stop();
+                }
+            }
+        }
+    </script>
+
+
+</header>
+</body>
 </html>

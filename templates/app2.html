@@ -31,7 +31,11 @@
         }
 
         .input-box {
-            margin-bottom: 20px;
+          margin: 10px;
+        }
+
+        #selected-image {
+          margin-top: 20px;
         }
 
         .input-box h1 {
@@ -99,6 +103,41 @@
         transform: scale(1.05);
         font-display: bold;
     }
+    /* Style for the result box */
+    .result-box {
+        display: flex; /* Use flex display for horizontal alignment */
+        flex-direction: row; /* Display items in a row (horizontal) */
+        border: 2px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        background-color: #f8f8f8;
+    }
+
+    /* Style for each result box (Name, Origin, Ingredients) */
+    .food-name-box,
+    .food-origin-box,
+    .restrictive-ingredients-box {
+        flex: 1; /* Distribute available space equally among the boxes */
+        display: flex; /* Use flex display for horizontal alignment */
+        flex-direction: column; /* Display items in a column (vertical) within each box */
+        border: 2px solid #3498db; /* Border styles for each box */
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        background-color: #eaf4fc;
+    }
+    .output-label p.name,
+    .food-origin-box p.origin,
+    .restrictive-ingredients-box ul.ingredient-list li.ingred,
+    .restrictive-ingredients-box p.no-ingredients {
+        margin: 0;
+        font-weight: bold;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 5px;
+        text-align: center; /* Center the text horizontally */
+    }
 
 
     </style>
@@ -130,37 +169,72 @@
         </div>
     </div>
     <!-- Header with image -->
-    <header class="bgimg w3-display-container w3-grayscale-min" id="app"
-        style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <header class="bgimg w3-display-container w3-grayscale-min" id="app" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
         <div class="container-box">
-            <!-- Add Image Upload Buttons and Four Boxes for Results -->
-            <div class="image-upload-container">
-                <div class="input-box">
-                    <h1>Upload Food Image</h1>
-                    <!-- Option to upload image from drive -->
-                    <input type="file" id="image-upload" accept="image/*">
-                    <!-- Option to capture image from camera -->
-                    <button id="camera-button">capture</button>
-                    <button id="camera-button">Clear</button>
+          <!-- Add Image Upload Buttons and Four Boxes for Results -->
+          <div class="image-upload-container">
+            <h1>Image Classifier</h1>
+            <!-- Add an image element to show the selected image -->
+            <img id="selected-image" src="" alt="Selected Image" style="display: none; max-width: 100%; max-height: 200px;">
+            <form method="POST" enctype="multipart/form-data" action="/app2">
+              <div class="input-box">
+                <h1>Upload Food Image</h1>
+                <!-- Option to upload image from drive -->
+                <input type="file" name="image" accept="image/*" onchange="displayImage(this)">
+                <!-- Submit button to upload the image -->
+                <button type="submit">Submit/Clean</button>
+                <!-- Add the "Clear" button -->
+              </div>
+            </form>
+            <!-- Four Boxes for Classification Results -->
+            <div class="result-box">
+              <div class="food-name-box">
+                <h2>Predicted Food:</h2>
+                <div class="output-label">
+                  <p class="name">{{ predicted_food_name }}</p>
                 </div>
-                <!-- Four Boxes for Classification Results -->
-                <div class="result-box">
-                    <div class="food-name-box">
-                        <h2>Food Name</h2>
-                        <p>Food name will appear here</p>
-                    </div>
-                    <div class="food-origin-box">
-                        <h2>Food Origin</h2>
-                        <p>Food origin will appear here</p>
-                    </div>
-                    <div class="restrictive-ingredients-box">
-                        <h2>Restrictive Ingredients</h2>
-                        <p>Restrictive ingredients will appear here</p>
-                    </div>
-                </div>
+              </div>
+              <div class="food-origin-box">
+                <h2>Origin:</h2>
+                <p class="origin">{{ food_origin }}</p>
+              </div>
+              <div class="restrictive-ingredients-box">
+                <h2>Restrictive Ingredients</h2>
+                {% if label_list_ingredient %}
+                  <ul class="ingredient-list">
+                    {% for ingredient in label_list_ingredient %}
+                      <li class="ingred">{{ ingredient.label }}</li>
+                    {% endfor %}
+                  </ul>
+                {% else %}
+                  <p class="no-ingredients"></p>
+                {% endif %}
+              </div>
             </div>
+          </div>
         </div>
-    </header>
+        <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+          <span class="w3-tag">The app is trained on 239 diffrent types food, it may not provide accurate results for foods beyond that</span>
+        </div>
+        <script>
+          // Function to display the uploaded image
+          function displayImage(input) {
+            if (input.files && input.files[0]) {
+              var reader = new FileReader();
+
+              reader.onload = function(e) {
+                // Display the image
+                var img = document.getElementById('selected-image');
+                img.src = e.target.result;
+                img.style.display = 'block';
+              }
+
+              reader.readAsDataURL(input.files[0]);
+            }
+          }
+
+      </script>
+      </header>
 </body>
 
 </html>

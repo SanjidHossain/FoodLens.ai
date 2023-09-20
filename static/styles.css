@@ -296,3 +296,43 @@ tr:nth-child(even) {
     display: flex;
     flex-direction: column;
 }
+.restrictive-box {
+    /* Add your other styling properties for the restrictive-box here */
+    text-align: center; /* Center text horizontally */
+    padding: 20px; /* Add padding for spacing */
+}
+
+.ingredient-list {
+    list-style: none; /* Remove default list bullet points */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Use flexbox for horizontal alignment */
+    flex-direction: row; /* Display items in a row (serially) */
+    align-items: center; /* Center items vertically if needed */
+}
+
+.ingredient-list li {
+    /* Add additional styling for each ingredient box here */
+    border: 1px solid #ccc; /* Add borders for boxes */
+    padding: 10px; /* Add padding for spacing inside boxes */
+    margin: 5px; /* Add margin for spacing between boxes */
+}
+.origin-box {
+    /* Add your other styling properties for the origin-box here */
+    text-align: center; /* Center text horizontally */
+    padding: 20px; /* Add padding for spacing */
+}
+
+.origin-list {
+    list-style: none; /* Remove default list bullet points */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Use flexbox for horizontal alignment */
+    flex-direction: row; /* Display items in a row (serially) */
+    align-items: center; /* Center items vertically if needed */
+}
+
+.origin-list li {
+    /* Add additional styling for each origin result box here */
+    border: 1px solid #ccc; /* Add borders for boxes */
+    padding: 10px; /* Add padding for spacing inside boxes */
+    margin: 5px; /* Add margin for spacing between boxes */
+}

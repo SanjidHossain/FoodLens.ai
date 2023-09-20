@@ -1,0 +1,25 @@
+{
+    "label": "biryani",
+    "confidences": [
+        {
+            "label": "biryani",
+            "confidence": 0.8018706440925598
+        },
+        {
+            "label": "misi_roti",
+            "confidence": 0.11083848774433136
+        },
+        {
+            "label": "Soba",
+            "confidence": 0.016630562022328377
+        },
+        {
+            "label": "spaghetti_bolognese",
+            "confidence": 0.01297737006098032
+        },
+        {
+            "label": "imarti",
+            "confidence": 0.008462494239211082
+        }
+    ]
+}
