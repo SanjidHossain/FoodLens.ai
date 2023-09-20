@@ -2,8 +2,6 @@ import requests
 from flask import Flask, render_template, request
 from gradio_client import Client
 import json
-from PIL import Image
-import io
 import pandas as pd
 
 app = Flask(__name__)
