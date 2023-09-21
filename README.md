@@ -60,8 +60,7 @@ For model selection of Food Origin detection Model, a `distilrobera-base` model 
 | roberta-base      | 0.040012      | 0.037279          |  98.4%           | 480 MB        |
 | distilrobera-base | 0.048786	    | 0.044740          |  98.3%           | 322 MB        |
 
-Since, distilrobera-base demonstrated 3% better result while also being more compact size wise. `distilrobera-base` was selected. The F1 Score (Micro) = 92.50% &
-F1 Score (Macro) = 90%
+Since, both model demonstrated similar result while distilrobera being more compact size wise. `distilrobera-base` was selected. The F1 Score (Micro) = 72% and F1 Score (Macro) = 0.69%
 
 ### Image(Food-Detection)
 
