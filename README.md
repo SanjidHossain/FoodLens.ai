@@ -137,7 +137,7 @@ A Flask App has been built and published on `render`. The web app can take any f
 <img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Web%20application/About.png" width="800" height="400">
 <br/>
 
-<a id="point4"></a>
+<a id="point5"></a>
 ## Updates:
 The Web application is currently Live and working well with both Image and text data. Two Major updates are in plan and in development and long-term improvement is in plan. They will be added very soon
 
