@@ -32,47 +32,54 @@ Initially, The collected data only contained Description, Origin, and Recipes. H
 
 As for Image data, the scraped data were manually checked and Cleaned.
 
-### Data augmentation
-While Food 101 Dataset had balanced 1000 images per class, the rest of the classes had comparatively less image data. to balanced the data we used Image augmentation(`Scripts\ImageAug.py`) to increase the data size for both Indian image data and scrapped data, the images were augmented in multiple layers to reach 950 to 1000 images per class.
+## Data augmentation
+### Image Data augmentation
+While Food 101 Dataset had balanced 1000 images per class, the rest of the classes had comparatively less image data. to balance the data we used Image augmentation(`Scripts\ImageAug.py`) to increase the data size for both Indian image data and scrapped data, the images were augmented in multiple layers to reach 950 to 1000 images per class. <br/>
+
+### Text data augmentation
+While 4834 data was working well for Restrictive Ingredient classification, it was different for Origin classification as in most cases origins tend to be single-label, so more data was necessary for better results and to increase the data size NLTK tool was used for text augmentation and the data was increased to more than `21,000` where each of the class had at least `600` data.
+<br/>
+
+All the Data for all three of the model has been linked and stored in the `Data` directory
 
 ## Model Training
 
 ### NLP(Restrcitive-Ingredient)
 
-For model selection of Restrictive food Ingredient detection Model, a `distilrobera-base` model from HuggingFace Transformers was finetuned that uses Fastai and Blurr. The model training notebook can be viewed at `Notebooks\Food-Restriction\Food_Restriction.ipynb`
+For the model selection of the Restrictive food Ingredient detection Model, a `distilrobera-base` model from HuggingFace Transformers was finetuned that uses Fastai and Blurr. The model training notebook can be viewed at `Notebooks\Food-Restriction\Food_Restriction.ipynb`
 
-#### Benchnarking
+#### Benchmarking
 | Model             | train_loss    | valid_loss        | accuracy_multi   | Model Size    |
 | -------------     | ------------- | -------------     | -------------    | ------------- |
 | roberta-base      | 0.050930      | 0.042578          |  98.19%          | 480 MB        |
 | distilrobera-base | 0.057865      | 0.045424	        |  98.28%          | 322 MB        |
 
-Since, they had nearly similar results, while model size was more compact for `distilrobera-base` this was selected. The F1 Score (Micro) = 96.50% &
+Since, they had nearly similar results, while the model size was more compact for `distilrobera-base` this was selected. The F1 Score (Micro) = 96.50% &
 F1 Score (Macro) = 94%
 
 ### NLP(Food-Origin)
 
-For model selection of Food Origin detection Model, a `distilrobera-base` model from HuggingFace Transformers was finetuned that uses Fastai and Blurr. The model training notebook can be viewed at `Notebooks\Food-Origin\Food_origin.ipynb`
+For the model selection of the Food Origin detection Model, a `distilrobera-base` model from HuggingFace Transformers was finetuned that uses Fastai and Blurr. The model training notebook can be viewed at `Notebooks\Food-Origin\Food_origin.ipynb`
 
-#### Benchnarking
+#### Benchmarking
 | Model             | train_loss    | valid_loss        | accuracy_multi   | Model Size    |
 | -------------     | ------------- | -------------     | -------------    | ------------- |
 | roberta-base      | 0.040012      | 0.037279          |  98.4%           | 480 MB        |
 | distilrobera-base | 0.048786	    | 0.044740          |  98.3%           | 322 MB        |
 
-Since, both model demonstrated similar result while distilrobera being more compact size wise. `distilrobera-base` was selected. The F1 Score (Micro) = 72% and F1 Score (Macro) = 0.69%
+Since both model demonstrated similar results while distilrobera was more compact size-wise. `distilrobera-base` was selected. The F1 Score (Micro) = 72% and F1 Score (Macro) = 0.69%
 
 ### Image(Food-Detection)
 
-For model selection of Image classification Model, `Resnet-50` model from HuggingFace Transformers was finetuned that uses Fastai and Blurr. The model training notebook can be viewed at `Notebooks\Food-Detection(Image)\Image.ipynb`
+For the model selection of Image classification Model, `Resnet-50` model from HuggingFace Transformers was finetuned using Fastai and Blurr. The model training notebook can be viewed at `Notebooks\Food-Detection(Image)\Image.ipynb`
 
-#### Benchnarking
+#### Benchmarking
 | Model             | train_loss    | valid_loss        | error_rate	   | accuracy      |
 | -------------     | ------------- | -------------     | -------------    | ------------- |
 | Resnet-34         | 0.416365      | 0.388924          |  0.100993        | 89.90%        |
 | Resnet-50         | 0.337102      | 0.318108          |  0.083765        | 91.62%        |
 
-Since, Resnet-50 demonstrated 2% better result Despite being a more complex model. `Resnet-50` was selected
+Since Resnet-50 demonstrated a 2% better result Despite being a more complex model. `Resnet-50` was selected
 
 ## Model Compression and ONNX Inference
 
@@ -81,17 +88,17 @@ The trained NLP model has a memory of 322+MB. For better usage, the model was co
 ## Model Deployment
 
 All three of the model is deployed to HuggingFace Spaces Gradio App. The implementation can be found in `deployment` folder
-[Visit here](https://huggingface.co/spaces/sanjid/Food-ingredient-Classifier) to checkout the NLP Model for Restricitve Ingredient classfier
+[Visit here](https://huggingface.co/spaces/sanjid/Food-ingredient-Classifier) to check the NLP Model for Restrictive Ingredient classifier
 
 
 <img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/app.png" width="800" height="400">
 <br/>
 
-[Visit here](https://huggingface.co/spaces/sanjid/Food-classifier-Resnet50) to checkout the image model
+[Visit here](https://huggingface.co/spaces/sanjid/Food-classifier-Resnet50) to check out the image model
 <img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food-classifier-Resnet50/app.png" width="800" height="400">
 <br/>
 
-[Visit here](https://huggingface.co/spaces/sanjid/Food-Origin-classifier-distiltrobertabase) to checkout the NLP Model for Origin classfier
+[Visit here](https://huggingface.co/spaces/sanjid/Food-Origin-classifier-distiltrobertabase) to check the NLP Model for Origin classifier
 <img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Origin%20classifier/oiriginapi.png" width="800" height="400">
 <br/>
 
