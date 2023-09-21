@@ -4,9 +4,17 @@
 
 A Web application that can detect food, Ingredients and origin from both text and image. The application is built from data collection, model training, and deployment that can classify Foods. <br/>
 The model can classify 239 different foods from images as well as detect the Origins of the food and Restrictive Ingredients(Allergies, Dairy, Meat, etc.) from description of any food.
+## Project Overview:
+
+[Data Managment](#point1): Data collection,Preprocessing and Augmentation.<br/>
+[ML Model](#point2): Model Training, Benchmarking and Compression .<br/>
+[API](#point3): Model Deployment and API building .<br/>
+[Application](#point4): API integration and Web application Development.<br/>
+[Future Updates:](#point5): Plans and Future Updates.<br/>
 
 ###  Visit the [website Here !!](https://foodlens-ai.onrender.com/)
 
+<a id="point1"></a>
  ## Data Collection
 
  ### Text Data
@@ -32,7 +40,9 @@ Initially, The collected data only contained Description, Origin, and Recipes. H
 
 As for Image data, the scraped data were manually checked and Cleaned.
 
+
 ## Data augmentation
+
 ### Image Data augmentation
 While Food 101 Dataset had balanced 1000 images per class, the rest of the classes had comparatively less image data. to balance the data we used Image augmentation(`Scripts\ImageAug.py`) to increase the data size for both Indian image data and scrapped data, the images were augmented in multiple layers to reach 950 to 1000 images per class. <br/>
 
@@ -41,6 +51,8 @@ While 4834 data was working well for Restrictive Ingredient classification, it w
 <br/>
 
 All the Data for all three of the model has been linked and stored in the `Data` directory
+
+<a id="point2"></a>
 
 ## Model Training
 
@@ -83,8 +95,9 @@ Since Resnet-50 demonstrated a 2% better result Despite being a more complex mod
 
 ## Model Compression and ONNX Inference
 
-The trained NLP model has a memory of 322+MB. For better usage, the model was compressed using ONNX quantization and brought under 82MB.
+The trained NLP model has a memory of 322+MB. For better usage, the model was compressed using ONNX quantization and brought under 82MB for both Restrictive Ingredient Model and Origin classification Model.
 
+<a id="point3"></a>
 ## Model Deployment
 
 All three of the model is deployed to HuggingFace Spaces Gradio App. The implementation can be found in `deployment` folder
@@ -102,6 +115,8 @@ All three of the model is deployed to HuggingFace Spaces Gradio App. The impleme
 <img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Origin%20classifier/oiriginapi.png" width="800" height="400">
 <br/>
 
+
+<a id="point4"></a>
 ## Web Deployment
 A Flask App has been built and published on `render`. The web app can take any form of News or article and show the Category or type of the article as output. Check `flask ` branch.
 **Please visit the [Website](https://foodlens-ai.onrender.com/)**
@@ -122,3 +137,10 @@ A Flask App has been built and published on `render`. The web app can take any f
 <img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Web%20application/About.png" width="800" height="400">
 <br/>
 
+<a id="point4"></a>
+## Updates:
+The Web application is currently Live and working well with both Image and text data. Two Major updates are in plan and in development and long term improvment is in plan. They will be added very soon
+
+  - **Image Scaner(V 0.1.1):** Next plan for the application is to add an Image scanning feature that will scan the Image from food packagings and food manues and Provide result based one them.
+  - **MultiLingual update(V 0.1.2):** After the addition of scanning fetaure, the next plan is to add Multilangual translation feature so that app can scan food descriptions,menu and Packages that contans diffrent langauges . <br/>
+  - **Image Model Update(Long-term plan):** adding more subjects and more dishes to image model for a more accurate and broad features.
