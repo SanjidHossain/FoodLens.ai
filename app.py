@@ -118,7 +118,8 @@ def app2():
                                 'confidence': int(elem['confidence'] * 100)
                             })
                 else:
-                    food_origin = 'Could not detect'
+                    predicted_food_name = 'Could not Indentify the image'
+                    food_origin = 'Please try another Image'
                     label_list_ingredient = []
 
                 # Add the 'predicted_food_name', 'food_origin', and 'label_list_ingredient' variables to the render_template call
@@ -129,6 +130,7 @@ def app2():
 
     # If the request method is not POST or there is no image, render the upload form
     return render_template('app2.html')
+
 
 
 def get_food_body_from_csv(predicted_food_name):
