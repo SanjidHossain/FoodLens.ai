@@ -1,6 +1,6 @@
 # FoodLens.ai
 
-# FoodLens.ai
+<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/FOODLENS.ai.png" width="1000" height="400">
 
 A Web application that can detect food, Ingredients and origin from both text and image. The application is built from data collection, model training, and deployment that can classify Foods. <br/>
 The model can classify 239 different foods from images as well as detect the Origins of the food and Restrictive Ingredients(Allergies, Dairy, Meat, etc.) from description of any food.
@@ -47,7 +47,8 @@ For model selection of Restrictive food Ingredient detection Model, a `distilrob
 | roberta-base      | 0.050930      | 0.042578          |  98.19%          | 480 MB        |
 | distilrobera-base | 0.057865      | 0.045424	        |  98.28%          | 322 MB        |
 
-Since, they had nearly similar results, while model size was more compact for `distilrobera-base` this was selected
+Since, they had nearly similar results, while model size was more compact for `distilrobera-base` this was selected. The F1 Score (Micro) = 96.50% &
+F1 Score (Macro) = 94%
 
 ### NLP(Food-Origin)
 
@@ -56,10 +57,11 @@ For model selection of Food Origin detection Model, a `distilrobera-base` model 
 #### Benchnarking
 | Model             | train_loss    | valid_loss        | accuracy_multi   | Model Size    |
 | -------------     | ------------- | -------------     | -------------    | ------------- |
-| roberta-base      | 0.365650      | 0.342742          |  88.59%          | 480 MB        |
-| distilrobera-base | 0.193177      | 0.251501          |  91.22%          | 322 MB        |
+| roberta-base      | 0.040012      | 0.037279          |  98.4%           | 480 MB        |
+| distilrobera-base | 0.048786	    | 0.044740          |  98.3%           | 322 MB        |
 
-Since, distilrobera-base demonstrated 3% better result while also being more compact size wise. `distilrobera-base` was selected
+Since, distilrobera-base demonstrated 3% better result while also being more compact size wise. `distilrobera-base` was selected. The F1 Score (Micro) = 92.50% &
+F1 Score (Macro) = 90%
 
 ### Image(Food-Detection)
 
@@ -80,7 +82,8 @@ The trained NLP model has a memory of 322+MB. For better usage, the model was co
 ## Model Deployment
 
 All three of the model is deployed to HuggingFace Spaces Gradio App. The implementation can be found in `deployment` folder
-[Visit here](https://huggingface.co/spaces/sanjid/Food-ingredient-Classifier) to checkout the NLP Model for Origin classfier
+[Visit here](https://huggingface.co/spaces/sanjid/Food-ingredient-Classifier) to checkout the NLP Model for Restricitve Ingredient classfier
+
 
 <img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/app.png" width="800" height="400">
 <br/>
@@ -90,12 +93,26 @@ All three of the model is deployed to HuggingFace Spaces Gradio App. The impleme
 <br/>
 
 [Visit here](https://huggingface.co/spaces/sanjid/Food-Origin-classifier-distiltrobertabase) to checkout the NLP Model for Origin classfier
-
+<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/oiriginapi.png" width="800" height="400">
 <br/>
+
 ## Web Deployment
 A Flask App has been built and published on `render`. The web app can take any form of News or article and show the Category or type of the article as output. Check `flask ` branch.
-**Please visit the [Website](https://multilab-news-classifier.onrender.com)**
+**Please visit the [Website](https://foodlens-ai.onrender.com/)**
 
+### Home Page:
+<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/Home.png" width="800" height="400">
+<br/>
 
+### Culinary Insights:
+<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/textapp.png" width="800" height="400">
+<br/>
 
+### SnapPlate:
+<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/imageapp.png" width="800" height="400">
+<br/>
+
+### SnapPlate:
+<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/About.png" width="800" height="400">
+<br/>
 
