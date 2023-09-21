@@ -1,6 +1,6 @@
 # FoodLens.ai
 
-<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Web%20application/FOODLENS.ai.png" width="1000" height="400">
+<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Web%20application/FOODLENS.ai.png" width="1000" height="300">
 
 A Web application that can detect food, Ingredients and origin from both text and image. The application is built from data collection, model training, and deployment that can classify Foods. <br/>
 The model can classify 239 different foods from images as well as detect the Origins of the food and Restrictive Ingredients(Allergies, Dairy, Meat, etc.) from description of any food.
