@@ -1,6 +1,6 @@
 # FoodLens.ai
 
-<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/FOODLENS.ai.png" width="1000" height="400">
+<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Web%20application/FOODLENS.ai.png" width="1000" height="400">
 
 A Web application that can detect food, Ingredients and origin from both text and image. The application is built from data collection, model training, and deployment that can classify Foods. <br/>
 The model can classify 239 different foods from images as well as detect the Origins of the food and Restrictive Ingredients(Allergies, Dairy, Meat, etc.) from description of any food.
@@ -93,7 +93,7 @@ All three of the model is deployed to HuggingFace Spaces Gradio App. The impleme
 <br/>
 
 [Visit here](https://huggingface.co/spaces/sanjid/Food-Origin-classifier-distiltrobertabase) to checkout the NLP Model for Origin classfier
-<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/oiriginapi.png" width="800" height="400">
+<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Origin%20classifier/oiriginapi.png" width="800" height="400">
 <br/>
 
 ## Web Deployment
@@ -101,18 +101,18 @@ A Flask App has been built and published on `render`. The web app can take any f
 **Please visit the [Website](https://foodlens-ai.onrender.com/)**
 
 ### Home Page:
-<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/Home.png" width="800" height="400">
+<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Web%20application/Home.png" width="800" height="400">
 <br/>
 
 ### Culinary Insights:
-<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/textapp.png" width="800" height="400">
+<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Web%20application/textapp.png" width="800" height="400">
 <br/>
 
 ### SnapPlate:
-<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/imageapp.png" width="800" height="400">
+<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Web%20application/imageapp.png" width="800" height="400">
 <br/>
 
-### SnapPlate:
-<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/About.png" width="800" height="400">
+### About:
+<img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Web%20application/About.png" width="800" height="400">
 <br/>
 
