@@ -121,8 +121,6 @@ def app2():
                     food_origin = 'Could not detect'
                     label_list_ingredient = []
 
-                print("Food Origin:", food_origin)
-
                 # Add the 'predicted_food_name', 'food_origin', and 'label_list_ingredient' variables to the render_template call
                 return render_template('app2.html', predicted_food_name=predicted_food_name, food_origin=food_origin, label_list_ingredient=label_list_ingredient)
 
