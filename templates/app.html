@@ -17,6 +17,8 @@
         background-position: center;
         background-size: cover;
         min-height: 100vh;
+        margin-top: 100px;
+        overflow-x: auto;
         background-image: url('static/builtin/image.jpg');
     }
 </style>
@@ -49,7 +51,7 @@
     </div>
     <!-- Header with image -->
     <header class="bgimg w3-display-container w3-grayscale-min" id="app"
-        style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        style="display: flex; justify-content: center; align-items: center; height: 100vh;margin-top: 10px;">
         <div class="container-box">
             <!-- Add Text Button and Image Button with class names at the top -->
         <!-- Rest of the content -->
@@ -148,6 +150,11 @@
                 }
             }
         }
+        window.onload = function() {
+            var navbarHeight = document.querySelector('.w3-top').offsetHeight;
+            document.querySelector('.container-box').style.marginTop = navbarHeight + 'px';
+        }
+
     </script>
 
 
