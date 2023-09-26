@@ -26,7 +26,7 @@ Data was collected from Website of [AllRecipes](https://www.allrecipes.com/) and
 
  ### Image Data
 
- Image Data was collected 2 ways<\br>
+ Image Data was collected 2 ways <br/>
 
  Two popular Image Datasets were taken From Kaggle:
   - [FOOD 101:](https://www.kaggle.com/datasets/dansbecker/food-101) that consisted Images of 101 popular foods(1000 images per foods) around the world.
