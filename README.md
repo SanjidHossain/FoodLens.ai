@@ -26,7 +26,7 @@ Data was collected from Website of [AllRecipes](https://www.allrecipes.com/) and
 
  ### Image Data
 
- Image Data was collected 2 ways<\br>
+ Image Data was collected 2 ways <br/>
 
  Two popular Image Datasets were taken From Kaggle:
   - [FOOD 101:](https://www.kaggle.com/datasets/dansbecker/food-101) that consisted Images of 101 popular foods(1000 images per foods) around the world.
@@ -143,18 +143,18 @@ The Web application is currently Live and working well with both Image and text 
 
   -  **Image Scanner: Version: 0.1.1**
     <br/>
-    In this update, we are excited to introduce a new feature to our application: the Image Scanner. This feature allows users to scan images from food packaging and menus and provides relevant results based on the scanned image. By leveraging image 
+    In this update, we are excited to introduce a new feature to our application: the Image Scanner. This feature allows users to scan images from food packaging and menus and provides relevant results based on the scanned image. By leveraging image
     recognition technology, users can easily obtain information about various food items.
 
   -  **Multilingual Support: Version: 0.1.2**
     <br/>
-    Building upon the Image Scanner, our next plan is to introduce a Multilingual update. This feature will enable the app to scan food descriptions, menus, and packaging containing different languages. Users will be able to translate and understand the 
+    Building upon the Image Scanner, our next plan is to introduce a Multilingual update. This feature will enable the app to scan food descriptions, menus, and packaging containing different languages. Users will be able to translate and understand the
     content in their preferred language, enhancing the usability and accessibility of the application.
 
 
   -  **Long-term Plan: Image Model Update**
     <br/>
-    As part of our long-term vision, we aim to continuously improve the accuracy and scope of our image recognition capabilities. We have plans to expand and enhance the image model by incorporating additional subjects and dishes. This update will result in 
+    As part of our long-term vision, we aim to continuously improve the accuracy and scope of our image recognition capabilities. We have plans to expand and enhance the image model by incorporating additional subjects and dishes. This update will result in
     more precise and comprehensive results, further enhancing the user experience.
 
 
