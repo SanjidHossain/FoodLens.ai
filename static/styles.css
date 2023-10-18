@@ -346,3 +346,8 @@ tr:nth-child(even) {
     padding: 10px; /* Add padding for spacing inside boxes */
     margin: 5px; /* Add margin for spacing between boxes */
 }
+@media screen and (max-width: 1000px) {
+    .container {
+        margin-top: 260px; /* Adjust this value based on the height of your nav bar */
+    }
+}
