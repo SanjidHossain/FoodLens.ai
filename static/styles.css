@@ -348,6 +348,6 @@ tr:nth-child(even) {
 }
 @media screen and (max-width: 1000px) {
     .container {
-        margin-top: 260px; /* Adjust this value based on the height of your nav bar */
+        margin-top: 360px; /* Adjust this value based on the height of your nav bar */
     }
 }
