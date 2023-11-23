@@ -1,8 +1,9 @@
 import requests
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file
 from gradio_client import Client
 import json
 import pandas as pd
+import shutil
 
 app = Flask(__name__)
 
@@ -90,6 +91,10 @@ def app2():
                 temp_image_path = "temp_image.jpg"
                 image_file.save(temp_image_path)
 
+                # New code to copy the image to static/uploads
+                destination_path = "static/uploads/temp_image.jpg"
+                shutil.copy(temp_image_path, destination_path)
+
                 # Provide the file path to the Gradio API
                 result = gradio_client.predict(temp_image_path, api_name="/predict")
                 print("Prediction Result File:", result)
@@ -164,7 +169,9 @@ def get_food_origin_from_csv(predicted_food_name):
 def About():
     return render_template('about.html')
 
-
+@app.route('/temp-image')
+def temp_image():
+    return send_file('temp_image.jpg', mimetype='image/jpeg')
 
 if __name__ == '__main__':
     app.run(debug=True)
