@@ -100,6 +100,7 @@ The trained NLP model has a memory of 322+MB. For better usage, the model was co
 <a id="point3"></a>
 ## Model Deployment
 
+<a id="Api1"></a>
 All three of the model is deployed to HuggingFace Spaces `Gradio` App. The implementation can be found in `deployment` folder
 [Visit here](https://huggingface.co/spaces/sanjid/Food-ingredient-Classifier) to check the NLP Model for Restrictive Ingredient classifier
 
@@ -107,10 +108,12 @@ All three of the model is deployed to HuggingFace Spaces `Gradio` App. The imple
 <img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Ingredient%20Classifier/app.png" width="800" height="400">
 <br/>
 
+<a id="Api2"></a>
 [Visit here](https://huggingface.co/spaces/sanjid/Food-classifier-Resnet50) to check out the image model
 <img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food-classifier-Resnet50/app.png" width="800" height="400">
 <br/>
 
+<a id="Api3"></a>
 [Visit here](https://huggingface.co/spaces/sanjid/Food-Origin-classifier-distiltrobertabase) to check the NLP Model for the Origin classifier
 <img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Food%20Origin%20classifier/oiriginapi.png" width="800" height="400">
 <br/>
@@ -125,17 +128,60 @@ A Flask App has been built and published on `render`. The web app can take any f
 <img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Web%20application/Home.png" width="800" height="400">
 <br/>
 
+Background Image used in the `Homepage` was specifically generated from [Leaonardo.ai](https://leonardo.ai/) based on the theme of this web application. <br\>
+Home-Page consists of Navigation pannel With option to access (`Home`,`Culinary Insight`,`SnapPlate:Food detective`,`About`) and 2 main Feature of the application.<br\>
+
+- **Culinary Insight:** This is linked to the NLP application of the website and sends `Culinary Insight` application
+- **SnapPlate:Food Detective** This is linked to Image Recognition application of the website and Opens `SnapPlate:Food detective` application
+
+
 ### Culinary Insights:
 <img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Web%20application/textapp.png" width="800" height="400">
 <br/>
+
+Background Image used in the `Culinary Insight` was specifically generated from [Leaonardo.ai](https://leonardo.ai/) based on the theme of this web application. <br/>
+Culinary Insight consists of Navigation pannel With option to access (`Home`,`Culinary Insight`,`SnapPlate:Food detective`,`About`) and The main application of the page. <br/>
+The application Takes text data from user and provide results based on the data. <br/>
+
+- **Input-Box:** Input Box holds the texts data for the application to recieve.
+- **Speech:** This button enables the speech-to-text option from browser using js function. the text from this feature is directly utilized and can be visible in `Input-box`.
+- **Submit:** This Button post the form that consists of text data in `input-box` to APIs in back end
+- **Origin:** This Container demonstrates the origin of the food based on the text data from User. The result in this container directly comes from the food [origin classification](#Api3) API deoployed in hugging face
+- **Restricitve-Ingredient:** This Container demonstrates the Restrictive-ingredients(Pork,Beef,alcohol,nuts etc.) of the food based on the text data from User. The result in this container directly comes from the [Restrictive-Ingredient classification](#Api1) API deoployed in hugging face.
+- **Clear:** Clear button clears both texts and the all the results in the application for new action.
+
+
 
 ### SnapPlate:
 <img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Web%20application/imageapp.png" width="800" height="400">
 <br/>
 
+Background Image used in the `SnapPlate:Food detective` was the same AI generated image used in `Culinary Insight` page . <br/>
+SnapPlate:Food detective consists of Navigation pannel With option to access (`Home`,`Culinary Insight`,`SnapPlate:Food detective`,`About`) and The main application of the page.<br/>
+The application Takes Image data from user and provide the results based on the data. <br/>
+
+- **Browse Image:** Image browsing or captur image option, takes the image from users
+- **Submit:** Submit option sends the Image that is caputured or selected through browsing in device and send the Image to API and Receive the Results based on user input
+- **Food Name:** Demonstrates the Food name taken in result by  Using Image, application sends the image to [Food Classifier](#Api2) API deployed in hugging face. The API returns the Name of the user back to aplication. For each food a description has been already created and set up in backend.
+- **Food Origin:** Based on Food name and the description set up for the food, Data is sent to [origin classification](#Api3) and recieve the data from the api and posted in results
+- **Restrictive-Ingredient:** Based on Food name and the description set up for the food, Data is sent to [Restrictive-Ingredient classification](#Api1) and recieve the data from the api and posted in results
+- **Show-Image:** This option enable users to view the subject/image that the result is based on or was selected for submission
+- **Clear:** Clear button clears the Image and the Results for next submission.
+
 ### About:
 <img src = "https://github.com/SanjidHossain/FoodLens.ai/blob/main/Deployments/Web%20application/About.png" width="800" height="400">
 <br/>
+
+Background Image used in the `About` was the same AI generated image used in `Culinary Insight` page . <br/>
+About of Navigation pannel With option to access (`Home`,`Culinary Insight`,`SnapPlate:Food detective`,`About`) and The main container with a message.<br/>
+
+The Page consists a container with message from Developers that contains information regarding the application and development process.<br/>
+
+The other feature of this page is a `Footer` that is consists of 2 options.
+
+- **LinkedIn:** Link to the LinkedIn profile of the Developer of web application
+- **Github:** Link to the Github profile of the Developer of web application
+
 
 <a id="point5"></a>
 ## Updates:
